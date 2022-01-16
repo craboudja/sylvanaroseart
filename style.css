@@ -1,0 +1,252 @@
+* {
+    cursor: none; 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color:thistle;
+}
+
+body {
+    font-family: sans-serif;
+    height: 100vh;
+    width: 100vw;
+    background-color: #190d3c;
+}
+
+.slide-image {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 50vw;    
+}
+
+
+.social-links-container, .shop-links-container{
+  height: 100vh;
+  flex-shrink: unset;
+}
+
+.shop-links, .social-links {
+  z-index: 1;
+}
+
+section {
+  height: 100vh;
+}
+
+.section1, .section3 {
+  width: 35vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.section2 {
+  width: 30vw;
+  height: 100vh;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.section-img {
+  z-index: 0;
+}
+
+.section1-img, .section3-img {
+  width: 55%; 
+}
+
+.inter {
+  height: 15vh;
+}
+.section2-img {
+  width: 75%;
+}
+
+a img:hover {
+  transform: scale(1.2); 
+  cursor: pointer; 
+}
+
+.links {
+  position: relative;
+}
+
+.links:hover {
+  text-decoration: underline;
+  cursor: pointer; 
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+
+    /* pour ie et mozilla */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.about-background { 
+  background-color: rgba(25,13,60, 0.5);
+  border-radius: 25px;
+}
+
+/* SOCIAL MEDIA */
+
+.bubble {
+  position: relative;
+  width: 10%;
+  padding: 0.2em;
+  border-radius: 50%;
+  background-color: rgba(133, 139, 240, 0.5);
+}
+
+.bubble-depart-position {
+  bottom: -95vh;
+}
+
+/* MEDIA QUERIES */
+
+@media (min-width: 1024px) {
+
+    .cursor {
+      position: absolute;
+      z-index: 0;
+      width: 10%;
+      height: 10%;
+      background: url('images/leftTop.gif') no-repeat; 
+    }
+    
+    .blockHorizontal {
+        display: flex;
+        flex-direction: row;
+        width: 100vw;
+        background: url('./images/background.gif') no-repeat;
+        background-size: cover;
+        z-index: -1;
+    }
+
+}
+
+@media (max-width: 1023px)  {
+
+    .blockHorizontal {
+        display: flex;
+        flex-direction: row;
+        background: url('./images/aqua-vert.gif') no-repeat top;
+        background-size: 100vw 100vh;
+      }
+
+      .slide-image {
+        margin-bottom: 20em;
+      }
+
+      .section2 .slide-image {
+        width: 100vw;
+      }
+ 
+      .section1-img, .section3-img {
+        width: 100%; 
+      }
+
+      .section2-img {
+        width: 110%;
+      }
+
+      .bubble {
+        width: 20%;
+      }
+}
+
+
+/* BUBBLE ANIMATION */
+
+.animate-mail {
+  animation: leftBubble 8s infinite linear;
+}
+
+.animate-facebook {
+  animation: leftBubble 10s infinite linear;
+}
+
+.animate-instagram, .animate-twitter {
+  animation: leftBubble 9s infinite linear;
+}
+
+.animate-pinterest {
+  animation: leftBubble 12s infinite linear;
+}
+
+.animate-redbubble {
+  animation: rightBubble 8s infinite linear;
+}
+
+.animate-etsy {
+  animation: rightBubble 10s infinite linear;
+}
+
+.animate-opensea {
+  animation: rightBubble 9s infinite linear;
+}
+
+.animate-inprnt {
+  animation: rightBubble 12s infinite linear;
+}
+
+/* SOCIAL BUBBLES ANIMATION */
+@keyframes leftBubble {
+  from {
+    bottom: 800;
+    left: 13px;
+  }
+  25% {
+    bottom: 600;
+    left: 10px;
+  }
+  50% {
+    bottom: 400;
+    left: 30px;
+  }
+  75% {
+    bottom: 200;
+    left: 40px;
+  }
+  to {
+    bottom: 0;
+    left: 0;
+  }
+}
+
+/* SHOP BUBBLES ANIMATION */
+@keyframes rightBubble {
+  from {
+    bottom: 800;
+    left: 0px;
+  }
+  25% {
+    bottom: 600;
+    left: 5px;
+  }
+  50% {
+    bottom: 400;
+    left: 10px;
+  }
+  75% {
+    bottom: 200;
+    left: 3px;
+  }
+  to {
+    bottom: 0;
+    left: 0;
+  }
+}
