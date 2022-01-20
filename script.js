@@ -107,12 +107,17 @@ bubblesDisplay(socialBubbles, social, socialContainer)
 about.addEventListener('click', function () {
   stylePointerEvents(coralItems, 'none')
   const welcome = document.querySelector('.slide-image')
-  welcome.src = './images/text.gif'
-  welcome.classList.add('about-background')
+  const text = document.querySelector('.about-video')
+  welcome.src = ''
+  welcome.alt = ''
+  text.src = './images/text.mp4'
 
-  const duration = 44500
+  // welcome.classList.add('about-background')
+
+  const duration = 43000
   setTimeout(function () {
     welcome.src = './images/welcome.gif'
+    text.src = ''
     stylePointerEvents(coralItems, 'auto')
     welcome.classList.remove('about-background')
   }, duration)
