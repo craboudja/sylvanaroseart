@@ -108,16 +108,18 @@ about.addEventListener('click', function () {
   stylePointerEvents(coralItems, 'none')
   const welcome = document.querySelector('.slide-image')
   const text = document.querySelector('.about-video')
-  welcome.src = ''
-  welcome.alt = ''
-  text.src = './images/text.mp4'
+  welcome.src = './images/text.gif'
+  // welcome.style.height = 0
+  // welcome.style.width = 0
+  // welcome.alt = ''
+  // text.src = './images/text.mp4'
 
   // welcome.classList.add('about-background')
 
   const duration = 43000
   setTimeout(function () {
     welcome.src = './images/welcome.gif'
-    text.src = ''
+    // text.src = ''
     stylePointerEvents(coralItems, 'auto')
     welcome.classList.remove('about-background')
   }, duration)
