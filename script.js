@@ -46,21 +46,23 @@ const socialBubbles = [
   }
 ]
 
+// CORALS IMG
 const shops = document.querySelector('.section3-img')
 const about = document.querySelector('.section2-img')
 const social = document.querySelector('.section1-img')
 
-const coralItems = [shops, about, social]
+// CORALS IMG TO DISPLAY
 
-const stylePointerEvents = (items, stat) => {
-  for (let item = 0; item < items.length; item++) {
-    items[item].style.pointerEvents = stat
-  }
-}
 
-// DISPLAY BUBBLES FONCTION
+// CONTAINERS WHERE BUBBLES ARE DISPLAYED
+const shopContainer = document.querySelector('.shop-links-container')
+const socialContainer = document.querySelector('.social-links-container')
 
-const bubblesDisplay = (bubbles, corals, bubbleContainer) => {
+// ______________________________________________________________________
+// BUBBLES
+
+// DISPLAY BUBBLES FONCTION - ADD BUBBLES TO CONTAINER
+const bubblesDisplay = (bubbles, coral, bubbleContainer) => {
   for (let i = 0; i < bubbles.length; i++) {
     const { logo, altText, link, title } = bubbles[i]
 
@@ -77,50 +79,77 @@ const bubblesDisplay = (bubbles, corals, bubbleContainer) => {
       </a>
       `
 
-    // DISPLAY BUBBLES ON CLICK OR TAP ON CORAL
-
-    const coral = corals
-
+    // INITIALIZE TO FALSE (NO BUBBLES DISPLAY)
+    let displayBubbles = false
+    // DISPLAY ON CLICK/TAP ON CORAL
     coral.addEventListener('click', function () {
-      bubbleContainer.innerHTML += bubble
-      // STOP CLICK ON CORAL
-      coral.style.pointerEvents = 'none'
-      // OK CLICK AND STOP BUBBLE AFTER 45SEC
-      const duration = 45000
-      setTimeout(function () {
+      if (!displayBubbles) {
+        displayBubbles = true
+        bubbleContainer.innerHTML += bubble
+
+        // STOP BUBBLE AFTER 45SEC
+        const duration = 45000
+        setTimeout(function () {
+          bubbleContainer.innerHTML = ''
+        }, duration)
+
+      // OR STOP IF RE-CLICK/RE-TAP
+      } else {
+        displayBubbles = false
         bubbleContainer.innerHTML = ''
-        coral.style.pointerEvents = 'auto'
-      }, duration)
+      }
     })
   }
 }
 
-const shopContainer = document.querySelector('.shop-links-container')
-const socialContainer = document.querySelector('.social-links-container')
-
+// SHOP BUBBLES DISPLAY
 bubblesDisplay(shopBubbles, shops, shopContainer)
+
+// SOCIAL BUBBLES DISPLAY
 bubblesDisplay(socialBubbles, social, socialContainer)
 
+// ______________________________________________________________________
 // ABOUT
 
-// DISPLAY ABOUT GIF THEN WELCOME
+// INITIALIZE DISPLAY TO FALSE
+let displayAbout = false
+
 about.addEventListener('click', function () {
-  stylePointerEvents(coralItems, 'none')
-  const welcome = document.querySelector('.slide-image')
-  const text = document.querySelector('.about-video')
-  welcome.src = './images/text.gif'
-  // welcome.style.height = 0
-  // welcome.style.width = 0
-  // welcome.alt = ''
-  // text.src = './images/text.mp4'
+  const welcome = document.querySelector('.about-image')
+  if (!displayAbout) {
+    // DISPLAY ABOUT TEXT
+    displayAbout = true
+    welcome.classList.add('about-background')
+    welcome.src = './images/text.gif'
 
-  // welcome.classList.add('about-background')
-
-  const duration = 43000
-  setTimeout(function () {
-    welcome.src = './images/welcome.gif'
-    // text.src = ''
-    stylePointerEvents(coralItems, 'auto')
+    // STOP DISPLAYING ABOUT TEXT AFTER 43S
+    const duration = 43000
+    setTimeout(function () {
+      welcome.src = './images/welcome.gif'
+      welcome.classList.remove('about-background')
+    }, duration)
+  } else {
+    // STOP DISPLAYING ABOUT TEXT
+    displayAbout = false
+    welcome.src = './images/welcome.png'
     welcome.classList.remove('about-background')
-  }, duration)
+    about.src = './images/about.png'
+  }
 })
+
+
+//__________________________________________________________________
+// MOUSE OVER
+
+const coralChange = (coral, coralName) => {
+  coral.addEventListener('mouseenter', () => {
+    coral.src = `./images/${coralName}.gif`
+  })
+  coral.addEventListener('mouseleave', () => {
+    coral.src = `./images/${coralName}.png`
+  })
+}
+
+coralChange(social, 'social')
+coralChange(shops, 'shops')
+coralChange(about, 'about')

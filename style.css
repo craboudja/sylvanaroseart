@@ -23,7 +23,7 @@ body {
   z-index: -1;
 }
 
-.slide-image {
+.about-image {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -35,6 +35,11 @@ body {
   width: 60%;
   min-width: 100%;
   min-height: 100%;
+}
+
+.about-background { 
+  background-color: rgba(25,13,60, 0.8);
+  border-radius: 25px;
 }
 
 .social-links-container, .shop-links-container{
@@ -111,10 +116,7 @@ a img:hover {
     display: none;
 }
 
-.about-background { 
-  background-color: rgba(25,13,60, 0.5);
-  border-radius: 25px;
-}
+
 
 /* SOCIAL MEDIA */
 
@@ -162,11 +164,11 @@ a img:hover {
         background-size: 100vw 100vh;
       }
 
-      .slide-image {
+      .about-image {
         margin-bottom: 20em;
       }
 
-      .section2 .slide-image {
+      .section2 .about-image {
         width: 100vw;
       }
  
