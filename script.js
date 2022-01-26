@@ -53,10 +53,25 @@ const social = document.querySelector('.section1-img')
 
 // CORALS IMG TO DISPLAY
 
-
 // CONTAINERS WHERE BUBBLES ARE DISPLAYED
 const shopContainer = document.querySelector('.shop-links-container')
 const socialContainer = document.querySelector('.social-links-container')
+
+// __________________________________________________________________
+// MOUSE OVER
+
+const coralChange = (coral, coralName) => {
+  coral.addEventListener('mouseenter', () => {
+    coral.src = `./images/${coralName}.gif`
+  })
+  coral.addEventListener('mouseleave', () => {
+    coral.src = `./images/${coralName}.png`
+  })
+}
+
+coralChange(social, 'social')
+coralChange(shops, 'shops')
+coralChange(about, 'about')
 
 // ______________________________________________________________________
 // BUBBLES
@@ -114,42 +129,42 @@ bubblesDisplay(socialBubbles, social, socialContainer)
 // INITIALIZE DISPLAY TO FALSE
 let displayAbout = false
 
-about.addEventListener('click', function () {
-  const welcome = document.querySelector('.about-image')
-  if (!displayAbout) {
-    // DISPLAY ABOUT TEXT
-    displayAbout = true
-    welcome.classList.add('about-background')
-    welcome.src = './images/text.gif'
+const welcome = document.querySelector('.about-image')
+let duration = 0
 
-    // STOP DISPLAYING ABOUT TEXT AFTER 43S
-    const duration = 43000
-    setTimeout(function () {
-      welcome.src = './images/welcome.gif'
-      welcome.classList.remove('about-background')
-    }, duration)
-  } else {
-    // STOP DISPLAYING ABOUT TEXT
-    displayAbout = false
+// DISPLAY BASIS TEXT WITH NO BACKGROUND
+const displayWelcomeText = () => {
     welcome.src = './images/welcome.png'
     welcome.classList.remove('about-background')
-    about.src = './images/about.png'
-  }
-})
-
-
-//__________________________________________________________________
-// MOUSE OVER
-
-const coralChange = (coral, coralName) => {
-  coral.addEventListener('mouseenter', () => {
-    coral.src = `./images/${coralName}.gif`
-  })
-  coral.addEventListener('mouseleave', () => {
-    coral.src = `./images/${coralName}.png`
-  })
 }
 
-coralChange(social, 'social')
-coralChange(shops, 'shops')
-coralChange(about, 'about')
+// DISPLAY ABOUT TEXT WITH BACKGROUND WHILE 44S
+// BACKGROUND AND TEXT CHANGE AFTER 45SEC
+const displayAboutText = () => {
+  about.addEventListener('click', function () {
+      displayAbout = true
+    welcome.classList.add('about-background')
+    welcome.src = './images/text.gif'
+    clearInterval(displayAboutInterval)
+    setTimeout(() => {
+      welcome.classList.remove('about-background')
+      welcome.src = './images/welcome.png'
+    }, 45000)
+  })
+}
+const displayAboutInterval = setInterval(displayAboutText, duration)
+
+if (!displayAbout) {
+  // DISPLAY ABOUT TEXT AND
+  // STOP DISPLAYING ABOUT TEXT AFTER 43S
+  duration = 44000
+  displayAboutInterval()
+
+} else {
+    about.addEventListener('click', function () {
+    // STOP DISPLAYING ABOUT TEXT AND DISPLAY BASIS TEXT
+      displayAbout = false
+      clearInterval(displayAboutInterval)
+      displayWelcomeText()
+    })
+}
