@@ -16,6 +16,12 @@ const shopBubbles = [
     logo: './images/opensea.png',
     altText: 'handdrawn opensea icon',
     link: 'https://opensea.io/collection/etherdiving'
+  },
+  {
+    title: 'ETSY',
+    logo: './images/etsy.png',
+    altText: 'handdrawn etsy icon',
+    link: 'https://www.etsy.com/shop/SylvanaRoseArt'
   }
 ]
 
@@ -155,4 +161,3 @@ about.addEventListener('click', function () {
   about.style.pointerEvents = 'none'
   displayAboutText()
 })
-// INCONSISTANT AU NIVEAU DU TIMING - VOIR QUAND ON CLIQUE PLUSIEURS FOIS
