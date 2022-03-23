@@ -127,44 +127,32 @@ bubblesDisplay(socialBubbles, social, socialContainer)
 // ABOUT
 
 // INITIALIZE DISPLAY TO FALSE
-let displayAbout = false
 
 const welcome = document.querySelector('.about-image')
-let duration = 0
 
 // DISPLAY BASIS TEXT WITH NO BACKGROUND
 const displayWelcomeText = () => {
-    welcome.src = './images/welcome.png'
-    welcome.classList.remove('about-background')
+  welcome.src = './images/welcome.png'
+  welcome.classList.remove('about-background')
+
+  console.log('display welcome text')
 }
 
 // DISPLAY ABOUT TEXT WITH BACKGROUND WHILE 44S
 // BACKGROUND AND TEXT CHANGE AFTER 45SEC
 const displayAboutText = () => {
-  about.addEventListener('click', function () {
-      displayAbout = true
-    welcome.classList.add('about-background')
-    welcome.src = './images/text.gif'
-    clearInterval(displayAboutInterval)
-    setTimeout(() => {
-      welcome.classList.remove('about-background')
-      welcome.src = './images/welcome.png'
-    }, 45000)
-  })
-}
-const displayAboutInterval = setInterval(displayAboutText, duration)
+  welcome.src = './images/text.gif'
+  welcome.classList.add('about-background')
+  console.log('displayAboutText')
 
-if (!displayAbout) {
-  // DISPLAY ABOUT TEXT AND
-  // STOP DISPLAYING ABOUT TEXT AFTER 43S
-  duration = 44000
-  displayAboutInterval()
-
-} else {
-    about.addEventListener('click', function () {
-    // STOP DISPLAYING ABOUT TEXT AND DISPLAY BASIS TEXT
-      displayAbout = false
-      clearInterval(displayAboutInterval)
-      displayWelcomeText()
-    })
+  setTimeout(() => {
+    displayWelcomeText()
+    about.style.pointerEvents = 'auto'
+  }, 44000)
 }
+
+about.addEventListener('click', function () {
+  about.style.pointerEvents = 'none'
+  displayAboutText()
+})
+// INCONSISTANT AU NIVEAU DU TIMING - VOIR QUAND ON CLIQUE PLUSIEURS FOIS
