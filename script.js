@@ -21,7 +21,7 @@ const shopBubbles = [
     title: 'ETSY',
     logo: './images/etsy.png',
     altText: 'handdrawn etsy icon',
-    link: 'https://www.etsy.com/shop/SylvanaRoseArt'
+    link: 'https://www.etsy.com/fr/listing/1186280464/3-frames-wall-art-digital-print-abstract'
   }
 ]
 
