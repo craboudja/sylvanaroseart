@@ -3,7 +3,7 @@ const shopBubbles = [
     title: 'REDBUBBLE',
     logo: './images/redbubble.png',
     altText: 'handdrawn redbubble icon',
-    link: 'https://www.redbubble.com/fr/i/sac-a-dos/Motif-fleuri-par-SylvanaRoseArt/83036847.K1KHE'
+    link: 'https://www.redbubble.com/people/sylvanaroseart/shop?artistUserName=sylvanaroseart&collections=2909863'
   },
   {
     title: 'INPRNT',
@@ -24,6 +24,8 @@ const shopBubbles = [
     link: 'https://www.etsy.com/shop/SylvanaRoseAnimation'
   }
 ]
+
+
 
 const socialBubbles = [
   {
