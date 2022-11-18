@@ -21,7 +21,7 @@ const shopBubbles = [
     title: 'ETSY',
     logo: './images/etsy.png',
     altText: 'handdrawn etsy icon',
-    link: 'https://www.etsy.com/shop/SylvanaRoseAnimation'
+    link: 'https://www.etsy.com/shop/SylvanaRoseArt'
   }
 ]
 
