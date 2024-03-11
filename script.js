@@ -3,7 +3,7 @@ const shopBubbles = [
     title: 'REDBUBBLE',
     logo: './images/redbubble.png',
     altText: 'handdrawn redbubble icon',
-    link: 'https://www.redbubble.com/people/sylvanaroseart/shop?artistUserName=sylvanaroseart&collections=2909863'
+    link: 'https://www.redbubble.com/fr/people/SylvanaRoseArt/shop'
   },
   {
     title: 'INPRNT',
@@ -21,11 +21,9 @@ const shopBubbles = [
     title: 'ETSY',
     logo: './images/etsy.png',
     altText: 'handdrawn etsy icon',
-    link: 'https://www.etsy.com/shop/SylvanaRoseArt'
+    link: 'https://sylvanaroseanimation.etsy.com'
   }
 ]
-
-
 
 const socialBubbles = [
   {
@@ -45,12 +43,6 @@ const socialBubbles = [
     logo: './images/mail.png',
     altText: 'handdrawn mail icon',
     link: 'mailto:sylvanaroseart@gmail.com'
-  },
-  {
-    title: 'TWITTER',
-    logo: './images/twitter.png',
-    altText: 'handdrawn twitter icon',
-    link: 'https://twitter.com/SylvanaRoseArt'
   }
 ]
 
