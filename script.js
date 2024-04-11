@@ -6,10 +6,10 @@ const shopBubbles = [
     link: 'https://www.redbubble.com/fr/people/SylvanaRoseArt/shop'
   },
   {
-    title: 'INPRNT',
-    logo: './images/inprnt.png',
-    altText: 'handdrawn inprnt icon',
-    link: 'https://www.inprnt.com/gallery/sylvanaroseart/'
+    title: 'KOFI',
+    logo: './images/kofi.png',
+    altText: 'handdrawn kofi icon',
+    link: 'https://www.ko-fi.com/sylvanacreates'
   },
   {
     title: 'OPENSEA',
